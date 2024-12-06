@@ -238,7 +238,11 @@
     <service id="App\Form\UserGuardType" class="App\Form\UserGuardType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
-    <service id="App\Repository\IngrdientRepository" class="App\Repository\IngrdientRepository" autowire="true" autoconfigure="true">
+    <service id="App\Repository\CommentaireRepository" class="App\Repository\CommentaireRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\IngredientRepository" class="App\Repository\IngredientRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -246,7 +250,7 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\RecetteIngrdientRepository" class="App\Repository\RecetteIngrdientRepository" autowire="true" autoconfigure="true">
+    <service id="App\Repository\RecetteIngredientRepository" class="App\Repository\RecetteIngredientRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -2441,7 +2445,7 @@
     <service id="doctrine.orm.configuration" class="Doctrine\ORM\Configuration" abstract="true"/>
     <service id="doctrine.orm.entity_manager.abstract" class="Doctrine\ORM\EntityManager" lazy="true" abstract="true"/>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.LSZo2mQ"/>
+      <argument type="service" id=".service_locator.4uRkUVm"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4191,12 +4195,14 @@
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserGuardType" class="App\Form\UserGuardType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserGuardType" class="App\Form\UserGuardType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\IngrdientRepository" class="App\Repository\IngrdientRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\IngrdientRepository" class="App\Repository\IngrdientRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CommentaireRepository" class="App\Repository\CommentaireRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CommentaireRepository" class="App\Repository\CommentaireRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\IngredientRepository" class="App\Repository\IngredientRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\IngredientRepository" class="App\Repository\IngredientRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LikeRepository" class="App\Repository\LikeRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\LikeRepository" class="App\Repository\LikeRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RecetteIngrdientRepository" class="App\Repository\RecetteIngrdientRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\RecetteIngrdientRepository" class="App\Repository\RecetteIngrdientRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RecetteIngredientRepository" class="App\Repository\RecetteIngredientRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\RecetteIngredientRepository" class="App\Repository\RecetteIngredientRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RecetteRepository" class="App\Repository\RecetteRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\RecetteRepository" class="App\Repository\RecetteRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserGuardRepository" class="App\Repository\UserGuardRepository" autowire="true" abstract="true"/>
@@ -4787,12 +4793,13 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service_closure" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.LSZo2mQ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.4uRkUVm" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Repository\IngrdientRepository" type="service_closure" id="App\Repository\IngrdientRepository"/>
+        <argument key="App\Repository\CommentaireRepository" type="service_closure" id="App\Repository\CommentaireRepository"/>
+        <argument key="App\Repository\IngredientRepository" type="service_closure" id="App\Repository\IngredientRepository"/>
         <argument key="App\Repository\LikeRepository" type="service_closure" id="App\Repository\LikeRepository"/>
-        <argument key="App\Repository\RecetteIngrdientRepository" type="service_closure" id="App\Repository\RecetteIngrdientRepository"/>
+        <argument key="App\Repository\RecetteIngredientRepository" type="service_closure" id="App\Repository\RecetteIngredientRepository"/>
         <argument key="App\Repository\RecetteRepository" type="service_closure" id="App\Repository\RecetteRepository"/>
         <argument key="App\Repository\UserGuardRepository" type="service_closure" id="App\Repository\UserGuardRepository"/>
       </argument>
