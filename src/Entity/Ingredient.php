@@ -11,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: IngredientRepository::class)]
 class Ingredient
 {
-    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -25,6 +24,9 @@ class Ingredient
      */
     #[ORM\OneToMany(targetEntity: RecetteIngredient::class, mappedBy: 'ingredient')]
     private Collection $recetteIngredients;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
 
     public function __construct()
     {
@@ -48,7 +50,7 @@ class Ingredient
         return $this;
     }
 
-        /**
+    /**
      * @return Collection<int, RecetteIngredient>
      */
     public function getRecetteIngredients(): Collection
@@ -78,4 +80,15 @@ class Ingredient
         return $this;
     }
 
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): static
+    {
+        $this->image = $image;
+
+        return $this;
+    }
 }
