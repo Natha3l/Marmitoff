@@ -1,0 +1,60 @@
+
+.description p {
+    margin-bottom: 10px; 
+}
+
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.table thead tr {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px #999;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+
+.description a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+

@@ -20,8 +20,8 @@
             <tr>
                 <td>{{ recette.id }}</td>
                 <td>{{ recette.name }}</td>
-                <td>{{ recette.description }}</td>
-                <td>{{ recette.image }}</td>
+                <td>{{ recette.description|raw }}</td> 
+                <td><img src="{{ recette.image }}" alt="{{ recette.name }}" style="max-width: 200px; height: auto;"></td>
                 <td>
                     <a href="{{ path('app_recette_show', {'id': recette.id}) }}">show</a>
                     <a href="{{ path('app_recette_edit', {'id': recette.id}) }}">edit</a>
@@ -37,3 +37,4 @@
 
     <a href="{{ path('app_recette_new') }}">Create new</a>
 {% endblock %}
+

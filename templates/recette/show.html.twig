@@ -17,11 +17,13 @@
             </tr>
             <tr>
                 <th>Description</th>
-                <td>{{ recette.description }}</td>
+                <td>{{ recette.description|raw }}</td>
             </tr>
             <tr>
                 <th>Image</th>
-                <td>{{ recette.image }}</td>
+                <td>
+                    <img src="{{ recette.image }}" alt="{{ recette.name }}" style="max-width: 200px; height: auto;">
+                </td>
             </tr>
         </tbody>
     </table>
@@ -32,3 +34,4 @@
 
     {{ include('recette/_delete_form.html.twig') }}
 {% endblock %}
+
